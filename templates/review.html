@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+		
+		<title>Movie Review | Review</title>
+
+		<!-- Loading third party fonts -->
+		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
+		<link href="{{ url_for('static', filename='fonts/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+
+		<!-- Loading main css file -->
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+		
+		<!--[if lt IE 9]>
+		<script src="js/ie-support/html5.js"></script>
+		<script src="js/ie-support/respond.js"></script>
+		<![endif]-->
+
+	</head>
+
+
+	<body>
+		
+
+		<div id="site-content">
+			<header class="site-header">
+				<div class="container">
+					<a href="index.html" id="branding">
+						<img src="{{ url_for('static', filename='images/logo.png') }}" alt="" class="logo">
+						<div class="logo-copy">
+							<h1 class="site-title">Cinemate</h1>
+							<small class="site-description">Where every mood finds it's match!</small>
+						</div>
+					</a> <!-- #branding -->
+
+					<div class="main-navigation">
+						<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
+						<ul class="menu">
+							<li class="menu-item"><a href="index.html">Home</a></li>
+							<li class="menu-item"><a href="about.html">About</a></li>
+							<li class="menu-item current-menu-item"><a href="review.html">Mood</a></li>
+							<li class="menu-item"><a href="joinus.html">Join us</a></li>
+							<li class="menu-item"><a href="contact.html">Contact</a></li>
+							<li class="menu-item"><a href="anime-main/login.html">Login</a></li>
+						</ul> <!-- .menu -->
+
+						<form action="#" class="search-form">
+							<input type="text" placeholder="Search...">
+							<button><i class="fa fa-search"></i></button>
+						</form>
+					</div> <!-- .main-navigation -->
+
+					<div class="mobile-navigation"></div>
+				</div>
+			</header>
+			<main class="main-content">
+				<div class="container">
+					<div class="page">
+						<div class="breadcrumbs">
+							<a href="index.html">Home</a>
+							<span>Mood</span>
+						</div>
+
+						<div class="filters">
+							<form action="/select" method="post">
+								<select name="operator" id="operator" placeholder="Choose Category">
+									<option value="27" {% if value == "27" %} selected {% endif %}>Happy</option>
+									<option value="18" {% if value == "18" %} selected {% endif %}>Sad</option>
+									<option value="16" {% if value == "16" %} selected {% endif %}>Satisfied</option>
+									<option value="10749" {% if value == "10749" %} selected {% endif %}>Angry</option>
+									<option value="14" {% if value == "14" %} selected {% endif %}>Peaceful</option>
+									<option value="12" {% if value == "12" %} selected {% endif %}>Fearful</option>
+									<option value="80" {% if value == "80" %} selected {% endif %}>Excited</option>
+									<option value="35" {% if value == "35" %} selected {% endif %}>Depressed</option>
+									<option value="9648" {% if value == "9648" %} selected {% endif %}>Content</option>
+									<option value="28" {% if value == "28" %} selected {% endif %}>Sorrowful</option>
+								</select>
+								<input type="submit" value="Submit">
+							</form>
+						</div>
+						
+						<div class="movie-list">
+							{% for i in x %}
+							<div class="movie">
+								<figure class="movie-poster"><img src="https://image.tmdb.org/t/p/original/{{i.poster_path}}" alt="#"></figure>
+								<div class="movie-title"><a href="single.html">{{i.original_title}}</a></div>
+								<p>{{i.overview}}</p>
+							</div>
+							{% endfor %}
+						</div> <!-- .movie-list -->
+
+						<div class="pagination">
+							<a href="#" class="page-number prev"><i class="fa fa-angle-left"></i></a>
+							<span class="page-number current">1</span>
+							<a href="#" class="page-number">2</a>
+							<a href="#" class="page-number">3</a>
+							<a href="#" class="page-number">4</a>
+							<a href="#" class="page-number">5</a>
+							<a href="#" class="page-number next"><i class="fa fa-angle-right"></i></a>
+						</div>
+					</div>
+				</div> <!-- .container -->
+			</main>
+			<footer class="site-footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-2">
+							<div class="widget">
+								<h3 class="widget-title">About Us</h3>
+								<p>Our platform uses cutting-edge technology to deliver personalized recommendations tailored to your tastes.</p>
+							</div>
+						</div>
+						<div class="col-md-2">
+							<div class="widget">
+								<h3 class="widget-title">Recent Review</h3>
+								<ul class="no-bullet">
+									<li><a href="#">Amazing</a></li>
+									<li><a href="#">Efficient</a></li>
+									<li><a href="#">Fast and smooth</a></li>
+									<li><a href="#">Relevant</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-2">
+							<div class="widget">
+								<h3 class="widget-title">Help Center</h3>
+								<ul class="no-bullet">
+									<li><a href="#">Mumbai</a></li>
+									<li><a href="#">Delhi</a></li>
+									<li><a href="#">Chennai</a></li>
+									<li><a href="#">Kolkata</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-2">
+							<div class="widget">
+								<h3 class="widget-title">Join Us</h3>
+								<ul class="no-bullet">
+									<li><a href="#">Email</a></li>
+									<li><a href="#">Request Letter</a></li>
+									<li><a href="#">Club</a></li>
+									<li><a href="#">Community</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-2">
+							<div class="widget">
+								<h3 class="widget-title">Social Media</h3>
+								<ul class="no-bullet">
+									<li><a href="#">Facebook</a></li>
+									<li><a href="#">Twitter</a></li>
+									<li><a href="#">Instagram</a></li>
+									<li><a href="#">Pinterest</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-2">
+							<div class="widget">
+								<h3 class="widget-title">Newsletter</h3>
+								<form action="#" class="subscribe-form">
+									<input type="text" placeholder="Email Address">
+								</form>
+							</div>
+						</div>
+					</div> <!-- .row -->
+
+					<div class="colophon">Copyright 2014 CineMate. All rights reserved</div>
+				</div> <!-- .container -->
+
+			</footer>
+		</div>
+		<!-- Default snippet for navigation -->
+		
+
+
+		<script src="{{ url_for('static', filename='jquery-1.11.1.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='plugins.js') }}"></script>
+		<script src="{{ url_for('static', filename='app.js') }}"></script>
+		
+	</body>
+
+</html>

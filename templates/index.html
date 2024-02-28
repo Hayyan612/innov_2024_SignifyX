@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+		
+		<title>Movie Review</title>
+
+		<!-- Loading third party fonts -->
+		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">
+		<link href="{{ url_for('static', filename='fonts/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+
+		<!-- Loading main css file -->
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+		
+		<!--[if lt IE 9]>
+		<script src="js/ie-support/html5.js"></script>
+		<script src="js/ie-support/respond.js"></script>
+		<![endif]-->
+
+	</head>
+
+
+	<body>
+		
+		<div id="site-content">
+			<header class="site-header">
+				<div class="container">
+					<a href="index.html" id="branding">
+						<img src="{{ url_for('static', filename='images/logo.png') }}" alt="" class="logo">
+						<div class="logo-copy">
+							<h1 class="site-title">CineMate</h1>
+							<small class="site-description">Where every mood finds it's match!</small>
+						</div>
+					</a> <!-- #branding -->
+
+					<div class="main-navigation">
+						<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
+						<ul class="menu">
+							<li class="menu-item current-menu-item"><a href="index.html">Home</a></li>
+							<li class="menu-item"><a href="about.html">About</a></li>
+							<li class="menu-item"><a href="review.html">Mood</a></li>
+							<li class="menu-item"><a href="joinus.html">Join us</a></li>
+							<li class="menu-item"><a href="contact.html">Contact</a></li>
+							<li class="menu-item"><a href="anime-main/login.html">Login</a></li>
+						</ul> <!-- .menu -->
+
+						<form action="#" class="search-form">
+							<input type="text" placeholder="Search...">
+							<button><i class="fa fa-search"></i></button>
+						</form>
+					</div> <!-- .main-navigation -->
+
+					<div class="mobile-navigation"></div>
+				</div>
+			</header>
+			<main class="main-content">
+				<div class="container">
+					<div class="page">
+						<div class="row">
+							<div class="col-md-9">
+								<div class="slider">
+									<ul class="slides">
+										<li><a href="#"><img src="https://image.tmdb.org/t/p/original/{{pop_list[0].backdrop_path}}" alt="Slide 1"></a></li>
+										<li><a href="#"><img src="https://image.tmdb.org/t/p/original/{{pop_list[1].backdrop_path}}" alt="Slide 2"></a></li>
+										<li><a href="#"><img src="https://image.tmdb.org/t/p/original/{{pop_list[2].backdrop_path}}" alt="Slide 3"></a></li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="row">
+									<div class="col-sm-6 col-md-12">
+										<div class="latest-movie">
+											<a href="#"><img src="https://image.tmdb.org/t/p/original/{{now_list[0].poster_path}}" alt="Movie 1"></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div> <!-- .row -->
+						<div class="row">
+							<div class="col-sm-6 col-md-3">
+								<div class="latest-movie">
+									<a href="#"><img src="https://image.tmdb.org/t/p/original/{{now_list[2].poster_path}}" alt="Movie 3"></a>
+								</div>
+							</div>
+							<div class="col-sm-6 col-md-3">
+								<div class="latest-movie">
+									<a href="#"><img src="https://image.tmdb.org/t/p/original/{{now_list[3].poster_path}}" alt="Movie 4"></a>
+								</div>
+							</div>
+							<div class="col-sm-6 col-md-3">
+								<div class="latest-movie">
+									<a href="#"><img src="https://image.tmdb.org/t/p/original/{{now_list[4].poster_path}}" alt="Movie 5"></a>
+								</div>
+							</div>
+							<div class="col-sm-6 col-md-3">
+								<div class="latest-movie">
+									<a href="#"><img src="https://image.tmdb.org/t/p/original/{{now_list[5].poster_path}}" alt="Movie 6"></a>
+								</div>
+							</div>
+						</div> <!-- .row -->
+						
+						<div class="row">
+							<div class="col-md-4">
+								<h2 class="section-title">Recommendations</h2>
+								<p>With the vast amount of content available across streaming platforms, traditional movie theaters, and digital rental services, it can be overwhelming for users to find new movies to watch.</p>
+								<ul class="movie-schedule">
+									<li>
+										<div class="date">3/5</div>
+										<h2 class="entry-title"><a href="https://www.imdb.com/title/tt19864802/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_land%2520of%2520bad">Land Of Bad</a></h2>
+									</li>
+									<li>
+										<div class="date">3.5/5</div>
+										<h2 class="entry-title"><a href="https://www.imdb.com/title/tt24364990/?ref_=nv_sr_srsg_0_tt_7_nm_1_q_poac">Poacher</a></h2>
+									</li>
+									<li>
+										<div class="date">3.5/5</div>
+										<h2 class="entry-title"><a href="https://www.imdb.com/title/tt1867261/?ref_=fn_al_tt_3">House Of Spies</a></h2>
+									</li>
+									<li>
+										<div class="date">2.5/5</div>
+										<h2 class="entry-title"><a href="https://www.imdb.com/title/tt26047818/?ref_=nv_sr_srsg_1_tt_6_nm_1_q_anyone%2520">Anyone But You</a></h2>
+									</li>
+								</ul> <!-- .movie-schedule -->
+							</div>
+							<div class="col-md-4">
+								<h2 class="section-title">Recents</h2>
+								<p>New movies and series released.</p>
+								<ul class="movie-schedule">
+									<li>
+										<div class="date">3/5</div>
+										<h2 class="entry-title"><a href="https://www.imdb.com/title/tt26439204/?ref_=nv_sr_srsg_2_tt_5_nm_3_q_mercy">Mercy</a></h2>
+									</li>
+									<li>
+										<div class="date">3/5</div>
+										<h2 class="entry-title"><a href="https://www.imdb.com/title/tt15428134/?ref_=nv_sr_srsg_0_tt_6_nm_2_q_dunki">Dunki</a></h2>
+									</li>
+									<li>
+										<div class="date">4/5</div>
+										<h2 class="entry-title"><a href="https://www.imdb.com/title/tt30395619/?ref_=nv_sr_srsg_0_tt_1_nm_0_q_demon%2520slayer%2520hashira%2520training%2520">Demon Slayer - hashira training arc</a></h2>
+									</li>
+									<li>
+										<div class="date">3.5/5</div>
+										<h2 class="entry-title"><a href="https://www.imdb.com/title/tt10118590/?ref_=fn_al_tt_2">The Insiders</a></h2>
+									</li>
+								</ul> <!-- .movie-schedule -->
+							</div>
+							<div class="col-md-4">
+								<h2 class="section-title">People also search for</h2>
+								<p>People also search for these movies and shows.</p>
+								<ul class="movie-schedule">
+									<li>
+										<div class="date">4/5</div>
+										<h2 class="entry-title"><a href="https://www.imdb.com/title/tt17351924/?ref_=nv_sr_srsg_1_tt_6_nm_1_q_saltburn">Saltburn</a></h2>
+									</li>
+									<li>
+										<div class="date">4.5/5</div>
+										<h2 class="entry-title"><a href="https://www.imdb.com/title/tt23628262/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_the%2520elephant%2520whis">The Elephant Whispherers</a></h2>
+									</li>
+									<li>
+										<div class="date">4.5/5</div>
+										<h2 class="entry-title"><a href="https://www.imdb.com/title/tt0120338/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_titanic">Titanic</a></h2>
+									</li>
+									<li>
+										<div class="date">4/5</div>
+										<h2 class="entry-title"><a href="https://www.imdb.com/title/tt0816692/?ref_=nv_sr_srsg_0_tt_8_nm_0_q_interstell">Interstellar</a></h2>
+									</li>
+								</ul> <!-- .movie-schedule -->
+							</div>
+						</div>
+					</div>
+				</div> <!-- .container -->
+			</main>
+			<footer class="site-footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-2">
+							<div class="widget">
+								<h3 class="widget-title">About Us</h3>
+								<p>Our platform uses cutting-edge technology to deliver personalized recommendations tailored to your tastes.</p>
+							</div>
+						</div>
+						<div class="col-md-2">
+							<div class="widget">
+								<h3 class="widget-title">Recent Review</h3>
+								<ul class="no-bullet">
+									<li><a href="#">Amazing</a></li>
+									<li><a href="#">Efficient</a></li>
+									<li><a href="#">Fast and smooth</a></li>
+									<li><a href="#">Relevant</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-2">
+							<div class="widget">
+								<h3 class="widget-title">Help Center</h3>
+								<ul class="no-bullet">
+									<li><a href="#">Mumbai</a></li>
+									<li><a href="#">Delhi</a></li>
+									<li><a href="#">Chennai</a></li>
+									<li><a href="#">Kolkata</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-2">
+							<div class="widget">
+								<h3 class="widget-title">Join Us</h3>
+								<ul class="no-bullet">
+									<li><a href="#">Email</a></li>
+									<li><a href="#">Request Letter</a></li>
+									<li><a href="#">Club</a></li>
+									<li><a href="#">Community</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-2">
+							<div class="widget">
+								<h3 class="widget-title">Social Media</h3>
+								<ul class="no-bullet">
+									<li><a href="#">Facebook</a></li>
+									<li><a href="#">Twitter</a></li>
+									<li><a href="#">Instagram</a></li>
+									<li><a href="#">Pinterest</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-2">
+							<div class="widget">
+								<h3 class="widget-title">Newsletter</h3>
+								<form action="#" class="subscribe-form">
+									<input type="text" placeholder="Email Address">
+								</form>
+							</div>
+						</div>
+					</div> <!-- .row -->
+
+					<div class="colophon">Copyright 2014 CineMate. All rights reserved</div>
+				</div> <!-- .container -->
+
+			</footer>
+		</div>
+		<!-- Default snippet for navigation -->
+		
+
+		<script src="{{ url_for('static', filename='jquery-1.11.1.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='plugins.js') }}"></script>
+		<script src="{{ url_for('static', filename='app.js') }}"></script>
+		
+	</body>
+
+</html>
