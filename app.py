@@ -30,9 +30,9 @@ def review():
 @app.route('/single.html')
 def single():
     return render_template('single.html')
-@app.route('/anime-main/login.html')
+@app.route('/login.html')
 def login():
-    return render_template('anime-main/login.html')
+    return render_template('login.html')
 
 @app.route('/select', methods=['POST', 'GET'])
 def select():
